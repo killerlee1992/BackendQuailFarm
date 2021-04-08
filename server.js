@@ -47,7 +47,7 @@ cageRoutes.route('/update/:id').post(function(req, res) {
     
 
             cage.save().then(cage => {
-                res.json('Todo updated!');
+                res.json('cage updated!');
             })
             .catch(err => {
                 res.status(400).send("Update not possible");
@@ -57,8 +57,10 @@ cageRoutes.route('/update/:id').post(function(req, res) {
 
 cageRoutes.route('/add').post(function(req, res) {
     let cage = new Cage(req.body);
+    console.log(cage)
     cage.save()
         .then(cage => {
+            console.log(cage)
             res.status(200).json({'cage': 'todo added successfully'});
         })
         .catch(err => {
